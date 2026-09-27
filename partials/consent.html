@@ -1,0 +1,41 @@
+<!-- Shopify: snippets/cookie-consent.liquid, rendered in layout/theme.liquid.
+     Hidden by default; consent.js reveals it only when no choice is stored. -->
+<section class="consent-banner" aria-labelledby="consent-title" data-consent-banner hidden>
+  <h2 id="consent-title">Cookies on this site</h2>
+  <p>We use cookies to run the store, measure what's working, and show relevant ads. You can turn off analytics and ads cookies, or stop us from sharing your data for advertising.</p>
+  <p class="consent-gpc" data-gpc-banner-note hidden>Your browser sent a Global Privacy Control signal, so ads cookies and data sharing are already off.</p>
+  <div class="button-row">
+    <button class="button button--primary" type="button" data-consent-accept>Accept cookies</button>
+    <button class="button button--secondary" type="button" data-consent-reject>Reject non-essential</button>
+    <button class="button button--secondary" type="button" data-consent-manage>Choose cookies</button>
+  </div>
+</section>
+<dialog class="consent-dialog" aria-labelledby="choices-title" data-consent-dialog>
+  <form method="dialog">
+    <h2 id="choices-title">Your privacy choices</h2>
+    <p class="consent-gpc" data-gpc-note hidden>We detected Global Privacy Control and have turned off sale and sharing of your data. You can still change the other settings.</p>
+    <fieldset>
+      <legend class="visually-hidden">Cookie categories</legend>
+      <label class="consent-option">
+        <input type="checkbox" checked disabled>
+        <span>Essential<small>Cart, checkout, and security. Always on.</small></span>
+      </label>
+      <label class="consent-option">
+        <input type="checkbox" name="analytics">
+        <span>Analytics<small>Helps us see which pages people use so we can improve them.</small></span>
+      </label>
+      <label class="consent-option">
+        <input type="checkbox" name="marketing">
+        <span>Advertising<small>Lets ad partners show you ANKLE360 ads on other sites.</small></span>
+      </label>
+      <label class="consent-option">
+        <input type="checkbox" name="sale_of_data">
+        <span>Sale or sharing of personal information<small>California residents: uncheck to opt out of the sale or sharing of your personal information for cross-context advertising.</small></span>
+      </label>
+    </fieldset>
+    <div class="button-row">
+      <button class="button button--primary" type="submit">Save choices</button>
+      <button class="button button--secondary" type="button" data-consent-cancel>Cancel</button>
+    </div>
+  </form>
+</dialog>

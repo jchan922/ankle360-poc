@@ -1,0 +1,28 @@
+<!-- Shopify: templates/page.contact.json → sections/contact-form.liquid ({% form 'contact' %}) -->
+<section class="container page-intro page-intro--light grid grid--gap-lg" aria-labelledby="contact-title">
+  <div class="stack stack--lg md-span-8 lg-span-5">
+    <h1 id="contact-title">Contact us</h1>
+    <p class="lead">Questions about the disc, an order, or team pricing. We reply within one business day.</p>
+    <dl class="stack">
+      <div><dt class="small muted">Email</dt><dd><a href="mailto:hello@ankle360.com">hello@ankle360.com</a></dd></div>
+      <div><dt class="small muted">Hours</dt><dd>Monday to Friday, 9 am–5 pm Pacific</dd></div>
+    </dl>
+  </div>
+  <form class="stack stack--lg md-span-8 lg-span-6 lg-start-7" action="/contact#contact_form" method="post" data-demo-form data-success="Message sent. We'll reply within one business day.">
+    <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" name="contact[name]" autocomplete="name" required></div>
+    <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="contact[email]" type="email" autocomplete="email" required></div>
+    <div class="field">
+      <label for="c-topic">Topic</label>
+      <select class="select" id="c-topic" name="contact[topic]">
+        <option>Order question</option>
+        <option>Product question</option>
+        <option>Team or bulk pricing</option>
+        <option>Share my story</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="field"><label for="c-message">Message</label><textarea class="textarea" id="c-message" name="contact[body]" required></textarea></div>
+    <div class="cluster"><button class="button button--primary" type="submit">Send message</button></div>
+    <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+  </form>
+</section>

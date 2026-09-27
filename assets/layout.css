@@ -1,0 +1,100 @@
+/* layout.css — the base skeleton every page is built from.
+   Mobile first: 4 columns on phones, 8 on tablets, 12 from laptops up (see tokens.css).
+   Shopify: assets/layout.css, loaded before theme.css in layout/theme.liquid.
+
+   Page skeleton:
+     body
+       .skip-link
+       header.site-header      (section group: header)
+       main#main
+         section.section > .container > .grid > [.span-*]
+       footer.site-footer      (section group: footer)
+*/
+
+html { font-size: 100%; } /* respects the user's browser setting; default 16px */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--narrow { max-width: calc(48rem + 2 * var(--gutter)); }
+
+/* Sections: vertical rhythm comes only from here, never from component margins */
+.section { padding-block: var(--section-gap); }
+.section + .section--flush-top, .section--flush-top { padding-top: 0; }
+.section--rule { border-top: var(--border); }
+.section--dark { background: var(--color-dark); color: var(--color-on-dark); }
+.section-head { display: grid; gap: var(--space-3); margin-bottom: var(--section-head-gap); max-width: var(--measure); }
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+.grid--align-center { align-items: center; }
+.grid--align-end { align-items: end; }
+.grid--gap-lg { row-gap: var(--space-7); }
+
+/* Children span the full row by default (phones). Span classes set --span / --start;
+   a class without a smaller-breakpoint partner stays full width below its breakpoint. */
+.grid > * { --span: initial; --start: initial; grid-column: 1 / -1; }
+.grid > [class*="span-"] { grid-column: var(--start, auto) / span var(--span, var(--grid-columns)); }
+
+/* Base (phones, 4 columns) */
+.span-1 { --span: 1; }
+.span-2 { --span: 2; }
+.span-3 { --span: 3; }
+.span-4 { --span: 4; }
+
+/* md: tablets, 8 columns */
+@media (min-width: 48em) {
+  .md-span-2 { --span: 2; }
+  .md-span-3 { --span: 3; }
+  .md-span-4 { --span: 4; }
+  .md-span-5 { --span: 5; }
+  .md-span-6 { --span: 6; }
+  .md-span-8 { --span: 8; }
+}
+
+/* lg: laptops and up, 12 columns */
+@media (min-width: 64em) {
+  .lg-span-2 { --span: 2; }
+  .lg-span-3 { --span: 3; }
+  .lg-span-4 { --span: 4; }
+  .lg-span-5 { --span: 5; }
+  .lg-span-6 { --span: 6; }
+  .lg-span-7 { --span: 7; }
+  .lg-span-8 { --span: 8; }
+  .lg-span-12 { --span: 12; }
+  .lg-start-1 { --start: 1; }
+  .lg-start-7 { --start: 7; }
+  .lg-start-8 { --start: 8; }
+}
+
+/* ---------- Flow utilities ---------- */
+.stack { display: grid; gap: var(--stack-gap); align-content: start; }
+.stack--sm { --stack-gap: var(--space-2); }
+.stack--lg { --stack-gap: var(--space-5); }
+.cluster { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.cluster--between { justify-content: space-between; }
+.measure { max-width: var(--measure); }
+
+/* ---------- Accessibility utilities ---------- */
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: var(--space-4); top: -6.25rem; z-index: 100;
+  background: var(--color-ink); color: var(--color-bg);
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); text-decoration: none;
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* ---------- List & heading-row utilities ---------- */
+.list-reset { list-style: none; padding: 0; }
+.head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-4); margin-bottom: var(--section-head-gap); }
+.head-row .section-head { margin-bottom: 0; }

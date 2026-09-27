@@ -1,0 +1,23 @@
+<!-- Shopify: templates/cart.json → sections/main-cart.liquid (server-rendered from the cart object).
+     Checkout itself is Shopify's and is not part of the theme. -->
+<section class="container page-intro page-intro--light" aria-labelledby="cart-title" data-cart-page>
+  <h1 id="cart-title">Your cart</h1>
+  <div class="stack stack--lg" data-cart-empty>
+    <p class="lead">Your cart is empty. The disc comes in four colorways.</p>
+    <div class="cluster"><a class="button button--primary" href="product.html">Shop the disc</a></div>
+  </div>
+  <div class="grid grid--gap-lg" data-cart-filled hidden style="margin-top: var(--space-6)">
+    <ul class="cart-lines md-span-8 lg-span-8" role="list" data-cart-lines aria-label="Items in your cart"></ul>
+    <div class="cart-summary stack md-span-8 lg-span-4">
+      <h2 class="visually-hidden">Order summary</h2>
+      <dl>
+        <div><dt>Subtotal</dt><dd data-subtotal>$0.00</dd></div>
+        <div><dt>Shipping</dt><dd>Free</dd></div>
+        <div><dt>Estimated total</dt><dd data-total>$0.00</dd></div>
+      </dl>
+      <p class="small muted">Taxes are calculated at checkout.</p>
+      <button class="button button--primary button--block" type="button" data-checkout>Check out</button>
+      <p class="form-status small" role="status" aria-live="polite" data-checkout-status></p>
+    </div>
+  </div>
+</section>

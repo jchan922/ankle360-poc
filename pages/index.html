@@ -1,0 +1,203 @@
+<!-- Shopify: templates/index.json. Each <section> is one section file. -->
+
+<!-- sections/hero.liquid (full bleed: video or image behind copy) -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media">
+    <!-- Stock placeholder montage: eight Pexels clips (free for commercial use), cut, graded, and looped
+         by tools/build_montage.py. Swap in brand footage with the same file names.
+         Shopify: section.settings.video / video_mobile. -->
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg" aria-hidden="true" data-hero-video>
+      <source src="assets/video/hero-loop-mobile.webm" type="video/webm" media="(max-width: 47.99em)">
+      <source src="assets/video/hero-loop-mobile.mp4" type="video/mp4" media="(max-width: 47.99em)">
+      <source src="assets/video/hero-loop.webm" type="video/webm">
+      <source src="assets/video/hero-loop.mp4" type="video/mp4">
+    </video>
+  </div>
+  <button class="hero__pause" type="button" aria-pressed="false" data-hero-pause>
+    <span class="visually-hidden">Pause background video</span>
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+  </button>
+  <div class="container grid hero__content">
+    <div class="stack stack--lg md-span-8 lg-span-7">
+      <h1 id="hero-title">Built from the ankle up.</h1>
+      <p class="lead measure">The stackable balance disc that trains the joint every sport lands on. Start on the base, add rings as you get stronger, and stay in the game.</p>
+      <div class="cluster">
+        <a class="button button--primary" href="product.html">Shop the disc, $60</a>
+        <a class="button button--secondary" href="training.html">See the training plan</a>
+      </div>
+      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.8 out of 5 from 126 reviews</p>
+    </div>
+  </div>
+</section>
+
+<!-- sections/stat-band.liquid (blocks: stat) -->
+<section class="stat-band" aria-labelledby="specs-title">
+  <div class="container">
+    <h2 id="specs-title" class="visually-hidden">Key specs</h2>
+    <dl class="grid">
+      <div class="span-2 md-span-4 lg-span-3"><dt>Rated to</dt><dd>300 <span>lb</span></dd></div>
+      <div class="span-2 md-span-4 lg-span-3"><dt>Difficulty</dt><dd>4 <span>levels</span></dd></div>
+      <div class="span-2 md-span-4 lg-span-3"><dt>A session</dt><dd>5–10 <span>min</span></dd></div>
+      <div class="span-2 md-span-4 lg-span-3"><dt>Batteries</dt><dd>Zero</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- sections/exploded-view.liquid (blocks: part) -->
+<section class="exploded section section--dark" aria-labelledby="inside-title" data-exploded>
+  <div class="exploded__sticky">
+    <div class="container grid grid--align-center">
+      <div class="stack stack--lg md-span-8 lg-span-5">
+        <h2 id="inside-title">Four parts. One disc that levels up with you.</h2>
+        <p class="lead">The rings snap onto the base with magnets sealed inside. Add one when the level below feels easy.</p>
+        <ol class="exploded__parts">
+          <li data-part><strong>Grip ring</strong><span>Grooved, non-slip top surface for bare feet or shoes</span></li>
+          <li data-part><strong>Stacking rings</strong><span>Add or remove to change the level</span></li>
+          <li data-part><strong>Magnets</strong><span>Fully sealed, lock each ring in place</span></li>
+          <li data-part><strong>Dome base</strong><span>Rigid core rated to 300 lb. The dome creates the tilt your ankle controls.</span></li>
+        </ol>
+        <div class="exploded__progress" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="md-span-8 lg-span-7">{{exploded}}</div>
+    </div>
+  </div>
+</section>
+
+<!-- sections/levels.liquid (blocks: level) -->
+<section class="section section--dark" aria-labelledby="levels-title">
+  <div class="container">
+    <div class="head-row">
+      <div class="section-head">
+        <h2 id="levels-title">Four levels. No plateau.</h2>
+        <p class="lead">Every ring adds height and tilt. Move up when you own every drill at your level.</p>
+      </div>
+      <a class="text-link" href="training.html">Full training plan</a>
+    </div>
+    <ol class="rail" role="list">
+      <li class="level stack">
+        {{stack:0}}
+        <h3><span class="level__num">1</span> Base only</h3>
+        <p class="level__setup">The lowest and most forgiving setup. Stand next to a wall.</p>
+        <ul class="level__drills" role="list">
+          <li><span>Two-foot balance</span><span class="data">3 × 30 s</span></li>
+          <li><span>Single-leg balance</span><span class="data">3 × 20 s</span></li>
+        </ul>
+      </li>
+      <li class="level stack">
+        {{stack:1}}
+        <h3><span class="level__num">2</span> One ring</h3>
+        <p class="level__setup">More height, more tilt to control.</p>
+        <ul class="level__drills" role="list">
+          <li><span>Single-leg balance</span><span class="data">3 × 30 s</span></li>
+          <li><span>Head turns</span><span class="data">3 × 10</span></li>
+        </ul>
+      </li>
+      <li class="level stack">
+        {{stack:2}}
+        <h3><span class="level__num">3</span> Two rings</h3>
+        <p class="level__setup">Add reaches that pull you off center.</p>
+        <ul class="level__drills" role="list">
+          <li><span>Single-leg reaches</span><span class="data">3 × 8 each</span></li>
+          <li><span>Mini squats</span><span class="data">3 × 10</span></li>
+        </ul>
+      </li>
+      <li class="level stack">
+        {{stack:3}}
+        <h3><span class="level__num">4</span> Full stack</h3>
+        <p class="level__setup">The highest and least stable. Only after level 3 is easy.</p>
+        <ul class="level__drills" role="list">
+          <li><span>Eyes-closed balance</span><span class="data">3 × 20 s</span></li>
+          <li><span>Catch and throw</span><span class="data">3 × 30 s</span></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- sections/research.liquid -->
+<section class="section section--rule" aria-labelledby="research-title">
+  <div class="container grid grid--gap-lg">
+    <h2 id="research-title" class="md-span-8 lg-span-5">Train the reaction, not just the muscle.</h2>
+    <div class="stack md-span-8 lg-span-7">
+      <p>Every time the disc tips, the muscles and tendons around your ankle have to catch it. Doing that on purpose, a little harder each week, trains your ankle to react faster when a real misstep happens.</p>
+      <p>Balance training is one of the better-studied ways to lower the risk of ankle sprains, especially for people who have sprained an ankle before.</p>
+      <p class="note">ANKLE360 is exercise equipment, not a medical device. If you're recovering from an injury, check with a physical therapist or doctor before you start.</p>
+      <ul class="sources" role="list">
+        <li>McGuine TA, Keene JS. The effect of a balance training program on the risk of ankle sprains in high school athletes. <cite>Am J Sports Med</cite>, 2006.</li>
+        <li>Hupperets MDW, Verhagen EALM, van Mechelen W. Effect of unsupervised home based proprioceptive training on recurrences of ankle sprain. <cite>BMJ</cite>, 2009.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- sections/featured-quote.liquid (metaobject: customer_story, featured) -->
+<section class="section section--dark quote-band" aria-label="Customer quote">
+  <div class="quote-band__media"><img src="assets/img/story-soccer.svg" alt="" width="800" height="600" loading="lazy"></div>
+  <div class="container grid">
+    <figure class="quote md-span-8 lg-span-9">
+      <blockquote><p>“Same ankle, three seasons in a row. Ten minutes on the disc before practice, and I finally played a full season.”</p></blockquote>
+      <figcaption>Maya R., club soccer midfielder</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- sections/story-list.liquid (metaobject: customer_story, 3 latest) -->
+<section class="section" aria-labelledby="stories-title">
+  <div class="container">
+    <div class="head-row">
+      <h2 id="stories-title">Real athletes. Real ankles.</h2>
+      <a class="text-link" href="stories.html">All customer stories</a>
+    </div>
+    <ul class="grid grid--gap-lg list-reset" role="list">
+      <li class="md-span-4 lg-span-4">
+        <article class="story stack" aria-labelledby="s1">
+          <div class="story__media"><img src="assets/img/story-soccer.svg" alt="A soccer player balancing on a Blaze disc on a grass field" width="800" height="600" loading="lazy"></div>
+          <h3 id="s1">A midfielder who kept rolling one ankle</h3>
+          <p class="story__who">Maya R., club soccer</p>
+          <dl>
+            <div><dt>The problem</dt><dd>Sprained the same ankle three seasons in a row.</dd></div>
+            <div><dt>What changed</dt><dd>Ten minutes on the disc before every practice, moving up a level every three weeks.</dd></div>
+            <div><dt>Result</dt><dd>Played every game of her spring season without an ankle injury.</dd></div>
+          </dl>
+        </article>
+      </li>
+      <li class="md-span-4 lg-span-4">
+        <article class="story stack" aria-labelledby="s2">
+          <div class="story__media"><img src="assets/img/story-trail.svg" alt="A trail runner balancing on a Concrete disc on a dirt path" width="800" height="600" loading="lazy"></div>
+          <h3 id="s2">A trail runner coming back from time off</h3>
+          <p class="story__who">Derek L., trail runner</p>
+          <dl>
+            <div><dt>The problem</dt><dd>Felt unsteady on rocky descents after a year away from running.</dd></div>
+            <div><dt>What changed</dt><dd>Level 1 and 2 drills on rest days, three times a week.</dd></div>
+            <div><dt>Result</dt><dd>Finished his first 25K back without turning an ankle.</dd></div>
+          </dl>
+        </article>
+      </li>
+      <li class="md-span-8 lg-span-4">
+        <article class="story stack" aria-labelledby="s3">
+          <div class="story__media"><img src="assets/img/story-court.svg" alt="A basketball player balancing on a Target disc on a hardwood court" width="800" height="600" loading="lazy"></div>
+          <h3 id="s3">A coach warming up a whole team</h3>
+          <p class="story__who">Coach Alvarez, high school basketball</p>
+          <dl>
+            <div><dt>The problem</dt><dd>Needed a quick ankle routine that worked for every player.</dd></div>
+            <div><dt>What changed</dt><dd>Four stations at different levels, rotating every two minutes during warm-ups.</dd></div>
+            <div><dt>Result</dt><dd>Warm-ups take the same time, and every player now trains ankles twice a week.</dd></div>
+          </dl>
+        </article>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- sections/buy-band.liquid (setting: product) -->
+<section class="section section--rule" aria-labelledby="buy-title">
+  <div class="container grid grid--align-center grid--gap-lg">
+    <div class="gallery__main md-span-4 lg-span-5"><img src="assets/img/disc-target.svg" alt="ANKLE360 disc in Target colorway, top view" width="800" height="800" loading="lazy"></div>
+    <div class="stack stack--lg md-span-4 lg-span-6 lg-start-7">
+      <h2 id="buy-title">Start at level one.</h2>
+      <p class="muted">The ANKLE360 Disc: base, three stacking rings, and the four-level plan. Four colorways, free US shipping, 30-day returns.</p>
+      <p class="price">$60</p>
+      <div class="cluster"><a class="button button--primary" href="product.html">Choose your colorway</a></div>
+    </div>
+  </div>
+</section>

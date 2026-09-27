@@ -1,0 +1,173 @@
+<!-- Shopify: templates/product.json → main-product (+ blocks), how-to, faq, reviews (app block). -->
+
+<nav class="container breadcrumb" aria-label="Breadcrumb">
+  <ol role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="product.html" aria-current="page">The ANKLE360 Disc</a></li>
+  </ol>
+</nav>
+
+<!-- sections/main-product.liquid -->
+<section class="container product grid grid--gap-lg" aria-labelledby="product-title">
+  <div class="gallery md-span-8 lg-span-7" data-gallery>
+    <!-- Shopify: product.media loop; alt text from each media's alt field -->
+    <div class="gallery__main">
+      <img data-gallery-main src="assets/img/disc-ember.svg" alt="ANKLE360 disc in Ember, top view" width="800" height="800">
+    </div>
+    <ul class="gallery__thumbs" role="list" aria-label="Product images">
+      <li><button class="gallery__thumb" type="button" data-thumb data-src="assets/img/disc-ember.svg" data-alt="ANKLE360 disc in Ember, top view" aria-current="true"><img src="assets/img/disc-ember.svg" alt="" width="80" height="80"><span class="visually-hidden">Top view</span></button></li>
+      <li><button class="gallery__thumb" type="button" data-thumb data-src="assets/img/disc-stack.svg" data-alt="ANKLE360 disc with all three rings stacked, side view" aria-current="false"><img src="assets/img/disc-stack.svg" alt="" width="80" height="80"><span class="visually-hidden">Side view, stacked</span></button></li>
+      <li><button class="gallery__thumb" type="button" data-thumb data-photo="true" data-src="assets/img/in-use-studio.svg" data-alt="Single-leg balance on the disc" aria-current="false"><img src="assets/img/in-use-studio.svg" alt="" width="80" height="80"><span class="visually-hidden">In use</span></button></li>
+    </ul>
+  </div>
+
+  <div class="stack stack--lg md-span-8 lg-span-5">
+    <div class="stack stack--sm">
+      <h1 id="product-title" class="product__title">The ANKLE360 Disc</h1>
+      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <a href="#reviews-title">4.8 out of 5 from 126 reviews</a></p>
+      <p class="price">$60</p>
+    </div>
+    <p class="muted">A stackable balance disc for ankle strength and stability. Comes with the base, three rings, and a four-level training plan.</p>
+
+    <!-- Shopify: {% form 'product', product, data-product-form: '' %} -->
+    <form class="stack stack--lg" action="/cart/add" method="post" data-product-form data-price="6000">
+      <input type="hidden" name="id" value="40000000000001">
+      <fieldset class="swatches">
+        <legend>Colorway: <output data-colorway-name>Ember</output></legend>
+        <div class="swatches__list">
+          <label class="swatch" data-colorway="ember"><input type="radio" name="colorway" value="ember" data-label="Ember" data-variant-id="40000000000001" checked><span class="swatch__chip"></span><span class="visually-hidden">Ember: charcoal with orange rim</span></label>
+          <label class="swatch" data-colorway="blaze"><input type="radio" name="colorway" value="blaze" data-label="Blaze" data-variant-id="40000000000002"><span class="swatch__chip"></span><span class="visually-hidden">Blaze: all orange</span></label>
+          <label class="swatch" data-colorway="target"><input type="radio" name="colorway" value="target" data-label="Target" data-variant-id="40000000000003"><span class="swatch__chip"></span><span class="visually-hidden">Target: charcoal with orange center</span></label>
+          <label class="swatch" data-colorway="concrete"><input type="radio" name="colorway" value="concrete" data-label="Concrete" data-variant-id="40000000000004"><span class="swatch__chip"></span><span class="visually-hidden">Concrete: grey with yellow rim</span></label>
+        </div>
+      </fieldset>
+      <div class="buy-row">
+        <div class="qty">
+          <button type="button" data-qty="-1" aria-label="Decrease quantity">−</button>
+          <label for="qty" class="visually-hidden">Quantity</label>
+          <input id="qty" name="quantity" type="number" inputmode="numeric" min="1" max="10" value="1">
+          <button type="button" data-qty="1" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="button button--primary button--block" type="submit">Add to cart</button>
+      </div>
+      <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+    </form>
+
+    <ul class="assurances" role="list">
+      <li>Free US shipping. Ships in 1–2 business days.</li>
+      <li>30-day returns, even if you've used it.</li>
+      <li>1-year warranty on cracks and magnet failure.</li>
+    </ul>
+
+    <!-- Shopify: collapsible_tab blocks; content from product metafields -->
+    <div class="accordion">
+      <details open>
+        <summary>What's in the box</summary>
+        <div class="accordion__body">
+          <ul>
+            <li>Dome base with rigid core</li>
+            <li>Three stacking rings; the top ring has the grip surface</li>
+            <li>Quick-start card with the four-level plan</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Specs</summary>
+        <div class="accordion__body">
+          <ul>
+            <li>Diameter: 7.3 in (186 mm)</li>
+            <li>Height with all rings: 2.5 in (64 mm)</li>
+            <li>Weight: 1.4 lb (0.6 kg)</li>
+            <li>Max user weight: 300 lb (136 kg)</li>
+            <li>Materials: glass-filled nylon core, overmolded rings, sealed magnets</li>
+            <li>Non-marking on hardwood floors</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Safety</summary>
+        <div class="accordion__body">
+          <ul>
+            <li>Use on a flat, dry floor next to a wall or sturdy support.</li>
+            <li>Start at level 1, even if you're experienced.</li>
+            <li>Do not exceed 300 lb.</li>
+            <li>Stop using the disc if a ring cracks or a magnet is exposed. Keep loose parts away from children and pets.</li>
+            <li>Not a medical device. If you're recovering from an injury, ask a clinician before starting.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Care</summary>
+        <div class="accordion__body"><p>Wipe with a damp cloth and mild soap. Let the rings air dry before stacking. Store out of direct sunlight.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- sections/how-to.liquid (blocks: step) -->
+<section class="section section--rule" aria-labelledby="howto-title">
+  <div class="container">
+    <div class="section-head"><h2 id="howto-title">How to start</h2></div>
+    <ol class="steps grid grid--gap-lg" role="list">
+      <li class="stack stack--sm md-span-8 lg-span-4"><h3>Set up by a wall</h3><p class="muted">Put the base on a flat floor within arm's reach of a wall or counter.</p></li>
+      <li class="stack stack--sm md-span-4 lg-span-4"><h3>Hold the level 1 drills</h3><p class="muted">Two-foot, then single-leg balance. Aim for steady, not perfect.</p></li>
+      <li class="stack stack--sm md-span-4 lg-span-4"><h3>Add a ring when it's easy</h3><p class="muted">When you can hold every drill at a level with control, stack the next ring.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- sections/image-banner.liquid -->
+<section class="section section--dark quote-band" aria-labelledby="inuse-title">
+  <div class="quote-band__media"><img src="assets/img/in-use-studio.svg" alt="" width="800" height="600" loading="lazy"></div>
+  <div class="container grid">
+    <div class="stack stack--lg md-span-8 lg-span-7">
+      <h2 id="inuse-title">Five minutes. Every warm-up.</h2>
+      <p class="lead measure">Before practice, before a run, before leg day. Short, frequent sessions are what build steadier ankles.</p>
+      <div class="cluster"><a class="button button--light" href="training.html">See the four-level plan</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- sections/faq.liquid (blocks: question) -->
+<section class="section section--rule" aria-labelledby="faq-title">
+  <div class="container grid grid--gap-lg">
+    <h2 id="faq-title" class="md-span-8 lg-span-5">Questions</h2>
+    <div class="accordion md-span-8 lg-span-7">
+      <details><summary>How long does a session take?</summary><div class="accordion__body"><p>Most people do 5–10 minutes, three to five times a week. It fits easily into a warm-up.</p></div></details>
+      <details><summary>Can I use it with shoes on?</summary><div class="accordion__body"><p>Yes. Barefoot is harder and works the small muscles in your feet more, so try both once you're comfortable.</p></div></details>
+      <details><summary>Will it scratch my floors?</summary><div class="accordion__body"><p>No. The base is non-marking on hardwood, tile, and gym flooring.</p></div></details>
+      <details><summary>Is it safe after an ankle sprain?</summary><div class="accordion__body"><p>Balance training is common in sprain recovery, but timing matters. Check with a physical therapist or doctor before you start.</p></div></details>
+      <details><summary>Do you offer team pricing?</summary><div class="accordion__body"><p>Yes, for orders of 10 or more. <a href="contact.html">Contact us</a> with your team size.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews: app block (e.g. Judge.me or Okendo) renders here in the theme -->
+<section class="section section--rule" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="reviews-title">Reviews</h2>
+      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.8 out of 5 from 126 reviews</p>
+    </div>
+    <ul class="grid grid--gap-lg list-reset" role="list">
+      <li class="review stack stack--sm md-span-4 lg-span-4">
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span class="visually-hidden">5 out of 5 stars</span></p>
+        <h3>Finally an ankle routine I stick with</h3>
+        <p class="muted">Takes five minutes before my runs. Level 2 already feels way harder than I expected.</p>
+        <p class="review__meta">Sam T., verified buyer</p>
+      </li>
+      <li class="review stack stack--sm md-span-4 lg-span-4">
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span class="visually-hidden">5 out of 5 stars</span></p>
+        <h3>Solid, doesn't slide</h3>
+        <p class="muted">Use it on hardwood in my living room. No marks, no sliding, and the rings snap on firmly.</p>
+        <p class="review__meta">Rachel M., verified buyer</p>
+      </li>
+      <li class="review stack stack--sm md-span-8 lg-span-4">
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★☆</span><span class="visually-hidden">4 out of 5 stars</span></p>
+        <h3>Great for my team, wish it came in a 4-pack</h3>
+        <p class="muted">We bought six for warm-ups. Kids love racing to the next level. A bundle price would be nice.</p>
+        <p class="review__meta">Coach D., verified buyer</p>
+      </li>
+    </ul>
+  </div>
+</section>

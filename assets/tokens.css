@@ -1,0 +1,175 @@
+/* tokens.css — every brand and scale value lives here. Swap a brand by editing this file.
+   Root font size is the browser default, 16px, so 1rem = 16px. All sizing uses rem.
+   Shopify: values come from config/settings_schema.json and are written by snippets/css-variables.liquid.
+
+   Breakpoints (mobile first, min-width; CSS variables can't be used inside media queries,
+   so these are the canonical values to copy):
+     base   0      phones (360–479px)
+     sm     30em   480px   large phones, landscape phones
+     md     48em   768px   tablets, portrait
+     lg     64em   1024px  tablets landscape, small laptops
+     xl     80em   1280px  laptops, desktops
+     2xl    90em   1440px  large desktops
+*/
+:root {
+  /* ---------- Color ---------- */
+  --color-bg: #FFFFFF;
+  --color-surface: #F3F3F1;       /* product stages, cards */
+  --color-ink: #000000;           /* 21:1 on bg */
+  --color-ink-muted: #575757;     /* 7:1 on bg */
+  --color-rule: #E0E0DE;
+  --color-rule-strong: #000000;
+  --color-accent: #FF4F1F;        /* ANKLE360 orange: fills, and text on black */
+  --color-on-accent: #000000;     /* 6.2:1 on accent */
+  --color-accent-ink: #C2380C;    /* orange text on white: 5.4:1 */
+  --color-dark: #000000;
+  --color-dark-raised: #151515;
+  --color-on-dark: #FFFFFF;
+  --color-on-dark-muted: #A8A8A8; /* 8.9:1 on black */
+  --color-speckle: #1C1E20;
+  --color-focus: #FF4F1F;
+  --color-success: #2F6B3A;
+  --color-error: #B3261E;
+  --color-star: #C2380C;
+
+  /* ---------- Type ---------- */
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-heading: var(--font-body);
+  --font-data: "Archivo", system-ui, sans-serif;
+  --display-stretch: 75%;         /* condensed display cut */
+
+  /* Type scale, base (phones) */
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.375rem;    /* 22px */
+  --text-2xl: 2.25rem;    /* 36px, section headlines */
+  --text-3xl: 3rem;       /* 48px, page headlines */
+  --text-display: 3.5rem; /* 56px, hero */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 600;
+  --weight-black: 800;
+  --leading-display: 0.92;
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+  --tracking-tight: -0.02em;
+  --measure: 38rem;        /* ~70 characters */
+
+  /* ---------- Space (4px grid, in rem) ---------- */
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+
+  /* Layout rhythm, base (phones) */
+  --section-gap: 3.5rem;      /* padding above/below sections */
+  --section-head-gap: 2rem;   /* heading block to content */
+  --stack-gap: 1rem;          /* default vertical flow */
+
+  /* ---------- Grid, base (phones) ---------- */
+  --container: 80rem;         /* 1280px max content width */
+  --gutter: 1.25rem;          /* outer page margin */
+  --grid-columns: 4;
+  --grid-gap: 1rem;
+
+  /* ---------- Shape & controls ---------- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-pill: 62.5rem;
+  --hairline: 1px;            /* borders stay in px so they never blur */
+  --border: var(--hairline) solid var(--color-rule);
+  --tap-target: 2.75rem;      /* 44px minimum touch target */
+  --control-height: 3rem;
+  --header-height: 4rem;
+
+  /* ---------- Media overlays ---------- */
+  --scrim-tint: 0.12;             /* even darkening over all hero video (phones) */
+  --scrim-copy: 0.88;             /* darkest point of the gradient behind copy */
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+
+  /* ---------- Focus ---------- */
+  --focus-ring: 0 0 0 0.1875rem var(--color-bg), 0 0 0 0.375rem var(--color-focus);
+
+  /* ---------- Disc illustration (default colorway) ---------- */
+  --disc-rim: #F0522A;
+  --disc-face: #2E2F31;
+  --disc-center: #2E2F31;
+  --disc-groove: rgba(241, 241, 236, 0.14);
+  --disc-label: rgba(241, 241, 236, 0.55);
+}
+
+/* sm: large phones */
+@media (min-width: 30em) {
+  :root {
+    --gutter: 1.5rem;
+    --text-display: 4rem;
+  }
+}
+
+/* md: tablets */
+@media (min-width: 48em) {
+  :root {
+    --text-base: 1.0625rem;  /* 17px */
+    --text-lg: 1.25rem;      /* 20px */
+    --text-xl: 1.5rem;       /* 24px */
+    --text-2xl: 3rem;        /* 48px */
+    --text-3xl: 4rem;        /* 64px */
+    --text-display: 5.5rem;  /* 88px */
+    --section-gap: 5rem;
+    --section-head-gap: 2.5rem;
+    --gutter: 2rem;
+    --grid-columns: 8;
+    --grid-gap: 1.5rem;
+  }
+}
+
+/* lg: laptops */
+@media (min-width: 64em) {
+  :root {
+    --text-2xl: 3.75rem;     /* 60px */
+    --text-3xl: 5rem;        /* 80px */
+    --text-display: 7rem;    /* 112px */
+    --section-gap: 6.5rem;
+    --section-head-gap: 3rem;
+    --gutter: 2.5rem;
+    --grid-columns: 12;
+    --grid-gap: 2rem;
+    --scrim-tint: 0.2;
+  }
+}
+
+/* xl: desktops */
+@media (min-width: 80em) {
+  :root {
+    --text-display: 8.5rem;  /* 136px */
+    --section-gap: 8rem;
+    --gutter: 3rem;
+  }
+}
+
+/* 2xl: large desktops */
+@media (min-width: 90em) {
+  :root {
+    --container: 86rem;      /* 1376px */
+  }
+}
+
+/* Colorways (product variants) */
+[data-colorway="ember"]    { --disc-rim: #F0522A; --disc-face: #2E2F31; --disc-center: #2E2F31; --disc-groove: rgba(241,241,236,.14); --disc-label: rgba(241,241,236,.55); }
+[data-colorway="blaze"]    { --disc-rim: #F0522A; --disc-face: #F0522A; --disc-center: #E34A23; --disc-groove: rgba(28,30,32,.16);  --disc-label: rgba(28,30,32,.5); }
+[data-colorway="target"]   { --disc-rim: #2E2F31; --disc-face: #2E2F31; --disc-center: #F0522A; --disc-groove: rgba(241,241,236,.14); --disc-label: rgba(28,30,32,.55); }
+[data-colorway="concrete"] { --disc-rim: #F2C21B; --disc-face: #A7A9A6; --disc-center: #A7A9A6; --disc-groove: rgba(28,30,32,.16);  --disc-label: rgba(28,30,32,.5); }

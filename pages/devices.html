@@ -1,0 +1,28 @@
+<!-- PROTOTYPE ONLY: stakeholder device preview. Not part of the Shopify theme. -->
+<section class="container page-intro page-intro--light" aria-labelledby="dev-title">
+  <div class="stack stack--lg">
+    <h1 id="dev-title">Device preview</h1>
+    <p class="lead">Each frame renders the page at a real device width, scaled to fit. Scroll inside a frame to review it.</p>
+    <div class="field" style="max-width: 20rem">
+      <label for="dev-page">Page</label>
+      <select class="select" id="dev-page" data-device-page>
+        <option value="index.html">Home</option>
+        <option value="product.html">Product</option>
+        <option value="training.html">Training</option>
+        <option value="stories.html">Customer stories</option>
+        <option value="cart.html">Cart</option>
+        <option value="contact.html">Contact</option>
+        <option value="policies.html">Policies</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section class="container" aria-label="Device frames" style="padding-bottom: var(--section-gap)">
+  <div class="device-row" data-devices>
+    <figure class="device" data-device="375x812"><div class="device__frame"><iframe title="Phone, 375 by 812" loading="lazy"></iframe></div><figcaption>Phone, 375 × 812 (base)</figcaption></figure>
+    <figure class="device" data-device="430x932"><div class="device__frame"><iframe title="Large phone, 430 by 932" loading="lazy"></iframe></div><figcaption>Large phone, 430 × 932 (sm)</figcaption></figure>
+    <figure class="device" data-device="820x1180"><div class="device__frame"><iframe title="Tablet, 820 by 1180" loading="lazy"></iframe></div><figcaption>Tablet, 820 × 1180 (md)</figcaption></figure>
+    <figure class="device" data-device="1280x800"><div class="device__frame"><iframe title="Laptop, 1280 by 800" loading="lazy"></iframe></div><figcaption>Laptop, 1280 × 800 (xl)</figcaption></figure>
+    <figure class="device" data-device="1440x900"><div class="device__frame"><iframe title="Desktop, 1440 by 900" loading="lazy"></iframe></div><figcaption>Desktop, 1440 × 900 (2xl)</figcaption></figure>
+  </div>
+</section>

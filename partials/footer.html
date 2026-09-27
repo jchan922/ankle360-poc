@@ -1,0 +1,53 @@
+<!-- Shopify: sections/footer.liquid (footer section group). Menus come from linklists. -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid grid--gap-lg">
+      <form class="newsletter stack md-span-8 lg-span-5" action="/contact#newsletter" method="post" data-demo-form data-success="You're subscribed. First training notes arrive next month.">
+        <!-- Shopify: {% form 'customer' %} with contact[tags]=newsletter -->
+        <h2>Training notes, once a month</h2>
+        <p>New drills, level-up tips, and what other customers are working on. No discount spam.</p>
+        <div class="field">
+          <label for="newsletter-email">Email address</label>
+          <div class="inline-form">
+            <input class="input" id="newsletter-email" name="contact[email]" type="email" autocomplete="email" required>
+            <button class="button button--primary" type="submit">Subscribe</button>
+          </div>
+        </div>
+        <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+      </form>
+      <nav class="footer-nav span-2 md-span-2 lg-span-2 lg-start-7" aria-labelledby="footer-shop">
+        <h2 id="footer-shop">Shop</h2>
+        <ul role="list">
+          <li><a href="product.html">The disc</a></li>
+          <li><a href="training.html">Training plan</a></li>
+          <li><a href="stories.html">Customer stories</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav span-2 md-span-3 lg-span-2" aria-labelledby="footer-help">
+        <h2 id="footer-help">Help</h2>
+        <ul role="list">
+          <li><a href="policies.html#shipping">Shipping</a></li>
+          <li><a href="policies.html#returns">Returns</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav span-4 md-span-3 lg-span-2" aria-labelledby="footer-legal">
+        <h2 id="footer-legal">Legal</h2>
+        <ul role="list">
+          <li><a href="policies.html#privacy">Privacy</a></li>
+          <li><a href="policies.html#terms">Terms</a></li>
+          <li>
+            <button type="button" data-open-privacy-choices>
+              <svg class="privacy-choices-icon" aria-hidden="true" viewBox="0 0 30 14"><rect x="0.5" y="0.5" width="29" height="13" rx="6.5" fill="#F1F1EC" stroke="#F1F1EC"/><path d="M15 0.5h8a6.5 6.5 0 0 1 0 13h-8Z" fill="#2E6BD6"/><path d="M5 7.2l2 2 3.6-4" stroke="#2E6BD6" stroke-width="1.6" fill="none"/><path d="M20 4.6l4.6 4.8M24.6 4.6 20 9.4" stroke="#F1F1EC" stroke-width="1.6"/></svg>
+              Your privacy choices
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__legal cluster cluster--between">
+      <p>&copy; 2026 ANKLE360. Exercise equipment, not a medical device.</p>
+      <p>Prototype for review. Stories and reviews are illustrative. <a href="devices.html">Device preview</a></p>
+    </div>
+  </div>
+</footer>

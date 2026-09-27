@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Flip no-js → js before first paint so JS-only UI (collapsed menu, video controls) never flashes. -->
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <!-- Prototype for stakeholder review: keep out of search engines. Remove in the Shopify theme. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F1F1EC">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23F0522A'/%3E%3Ccircle cx='12' cy='12' r='8.5' fill='%232E2F31'/%3E%3Ccircle cx='12' cy='12' r='3.5' fill='%23F0522A'/%3E%3C/svg%3E">
+  <!-- Shopify: fonts come from settings_schema font_picker + font_face, served from Shopify's CDN. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/tokens.css">
+  <link rel="stylesheet" href="assets/layout.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <script src="assets/theme.js" defer></script>
+  <script src="assets/consent.js" defer></script>
+  <!-- Consent-gated third-party script example (runs only after analytics consent):
+  <script type="text/plain" data-consent="analytics" src="https://example.com/analytics.js"></script> -->
+</head>
+<body>
+  {{sprite}}
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{header}}
+  <main id="main" tabindex="-1">
+{{content}}
+  </main>
+  {{footer}}
+  {{consent}}
+</body>
+</html>
