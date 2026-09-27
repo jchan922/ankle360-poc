@@ -62,26 +62,50 @@
     });
   }
 
-  /* ---------- Exploded view: scroll progress 0–1 → --p ---------- */
+  /* ---------- Exploded view: scroll progress 0–1 → layer transforms ----------
+     build.py renders the layers separated (the no-JS / reduced-motion view). When motion is
+     allowed, data-scroll turns on the tall sticky track and layers start assembled (p = 0).
+     SVG transform attributes, not CSS transforms, so it animates in Safari/iOS too.
+     --p on the section still drives the progress bar. */
   const exploded = document.querySelector('[data-exploded]');
   if (exploded) {
     const parts = exploded.querySelectorAll('[data-part]');
+    const layers = [...exploded.querySelectorAll('[data-shift]')].map((g) => ({
+      g, shift: Number(g.dataset.shift), magnets: g.classList.contains('exploded__magnets'),
+    }));
+    const setLayers = (p) => layers.forEach(({ g, shift, magnets }) => {
+      g.setAttribute('transform', `translate(0 ${(shift * p).toFixed(2)})`);
+      if (magnets) g.setAttribute('opacity', Math.min(1, Math.max(0, p * 1.6 - 0.3)).toFixed(3));
+    });
     let ticking = false;
     const update = () => {
       ticking = false;
-      if (reduceMotion.matches) { exploded.style.setProperty('--p', 1); return; }
+      if (!exploded.hasAttribute('data-scroll')) return;
       const rect = exploded.getBoundingClientRect();
       const travel = rect.height - window.innerHeight;
       const p = Math.min(1, Math.max(0, -rect.top / (travel || 1)));
-      exploded.style.setProperty('--p', Math.min(1, p / 0.7).toFixed(3));
+      const eased = Math.min(1, p / 0.7);
+      exploded.style.setProperty('--p', eased.toFixed(3));
+      setLayers(eased);
       const active = Math.min(parts.length - 1, Math.floor(p * parts.length));
       parts.forEach((el, i) => { el.dataset.active = String(i === active); });
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    const setMode = () => {
+      if (reduceMotion.matches) {
+        exploded.removeAttribute('data-scroll');
+        exploded.style.removeProperty('--p');
+        setLayers(1);
+        parts.forEach((el) => { delete el.dataset.active; });
+      } else {
+        exploded.setAttribute('data-scroll', '');
+        update();
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    reduceMotion.addEventListener('change', update);
-    update();
+    reduceMotion.addEventListener('change', setMode);
+    setMode();
   }
 
   /* ---------- Cart store ----------
