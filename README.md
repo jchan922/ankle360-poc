@@ -1,5 +1,9 @@
 # ANKLE360 storefront prototype
 
+[![Deploy prototype to GitHub Pages](https://github.com/jchan922/ankle360-poc/actions/workflows/pages.yml/badge.svg)](https://github.com/jchan922/ankle360-poc/actions/workflows/pages.yml)
+
+**Live prototype:** https://jchan922.github.io/ankle360-poc/
+
 Visual direction: sports performance, in the lane of Hyperice, Therabody, and Peloton.
 Black header and dark full-bleed sections, spotlit media behind condensed uppercase
 headlines, big stat callouts, and ANKLE360 orange as the single accent.
@@ -12,10 +16,38 @@ Online Store 2.0 theme with minimal change.
 
 1. Create a new GitHub repo and push the contents of this folder to the `main` branch.
 2. In the repo: Settings > Pages > Build and deployment > Source: **GitHub Actions**.
-3. Every push to `main` runs `.github/workflows/pages.yml`, which runs `python build.py`
-   and publishes the `site/` folder. The URL appears in the Actions run and in Settings > Pages.
+3. Every push to `main` runs `.github/workflows/pages.yml`, which runs `python build.py`,
+   then `python tools/check_links.py`, and publishes the `site/` folder. A broken link or
+   asset path fails the run before anything deploys.
 
 GitHub Pages is free for public repos; a private repo needs a paid GitHub plan.
+
+### Project subpath
+
+The site is served from `/ankle360-poc/`, not the domain root, so pages link to each other
+and to `assets/` with relative paths. Don't start a link or asset path with `/`.
+
+- `404.html` is the one exception. Pages serves it for any missing URL at any depth, so
+  `build.py` prefixes its relative URLs with `SITE_BASE_PATH` (default `/ankle360-poc/`;
+  the workflow sets it from the repo name).
+- Form actions such as `/cart/add` and `/contact` are root-absolute on purpose. They're
+  Shopify endpoints, and the prototype's JavaScript intercepts them.
+
+Check links locally after a build:
+
+```
+python3 build.py
+python3 tools/check_links.py
+```
+
+## Releases
+
+Tags mark versions that stakeholders have reviewed. Each one is an annotated tag named
+`vMAJOR.MINOR.PATCH` on the deployed commit, with a GitHub Release that lists what changed.
+`main` always deploys the latest work, so link to a tag or release when you need to refer
+to a specific reviewed version.
+
+- `v0.1.0`: first stakeholder prototype.
 
 ## Build process
 
