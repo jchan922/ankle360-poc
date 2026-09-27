@@ -71,15 +71,19 @@ def stack_inline(n):
     return f'<svg class="level__stack" viewBox="60 {top} 480 {b+150-top}" aria-hidden="true" data-colorway="ember">{stack_body(n)}</svg>'
 
 def exploded_svg():
+    # Layers render fully separated (the no-JS and reduced-motion view). theme.js reads
+    # data-shift and animates the SVG transform attribute from assembled (0) to separated.
     b = 400
+    def layer(shift, body, cls="exploded__layer"):
+        return f'<g class="{cls}" data-shift="{shift}" transform="translate(0 {shift})">{body}</g>'
     return f'''<svg class="exploded__figure" viewBox="0 -70 600 680" role="img" aria-labelledby="exploded-title exploded-desc" data-colorway="ember">
   <title id="exploded-title">ANKLE360 disc, exploded view</title>
   <desc id="exploded-desc">From bottom to top: a dome base, four magnets, and three stacking rings, the top ring with a grooved grip surface.</desc>
-  <g class="exploded__layer" style="--shift: 0px">{base(b)}</g>
-  <g class="exploded__layer exploded__magnets" style="--shift: -18px">{magnets(b)}</g>
-  <g class="exploded__layer" style="--shift: -110px">{slab(b-26, 24)}</g>
-  <g class="exploded__layer" style="--shift: -190px">{slab(b-52, 24)}</g>
-  <g class="exploded__layer" style="--shift: -270px">{slab(b-78, 24, grooves=True)}</g>
+  {layer(0, base(b))}
+  {layer(-18, magnets(b), "exploded__layer exploded__magnets")}
+  {layer(-110, slab(b-26, 24))}
+  {layer(-190, slab(b-52, 24))}
+  {layer(-270, slab(b-78, 24, grooves=True))}
 </svg>'''
 
 # ---------- Temporary scene illustrations (replace with photography) ----------
